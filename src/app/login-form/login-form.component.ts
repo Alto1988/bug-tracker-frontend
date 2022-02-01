@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { LoginServiceService } from './login-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -13,7 +16,19 @@ export class LoginFormComponent implements OnInit {
     email: '',
     password: '',
   };
-  constructor(private http: HttpClient) {}
+  form: FormGroup;
+  constructor(
+    private http: HttpClient,
+    private fb: FormBuilder,
+    private auth: LoginServiceService,
+    private router: Router
+  ) {
+    this.form = this.fb.group({
+      username: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+    });
+  }
 
   ngOnInit(): void {}
 
