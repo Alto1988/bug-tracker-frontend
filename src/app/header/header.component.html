@@ -14,23 +14,13 @@
     </ng-template>
   </li>
   <li [ngbNavItem]="2">
-    <a ngbNavLink>Ticket</a>
+    <a ngbNavLink>Login/Register</a>
     <ng-template ngbNavContent>
-      <p>
-        Exercitation +1 labore velit, blog sartorial PBR leggings next level wes
-        anderson artisan four loko farm-to-table craft beer twee. Qui photo
-        booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts
-        ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore
-        aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero
-        magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes
-        anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry
-        richardson biodiesel. Art party scenester stumptown, tumblr butcher vero
-        sint qui sapiente accusamus tattooed echo park.
-      </p>
+      <app-login-form></app-login-form>
     </ng-template>
   </li>
   <li [ngbNavItem]="3">
-    <a ngbNavLink>Tasks</a>
+    <a ngbNavLink>About</a>
     <ng-template ngbNavContent>
       <p>
         Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget
@@ -47,22 +37,6 @@
       </p>
     </ng-template>
   </li>
-  <li [ngbNavItem]="4">
-    <a ngbNavLink>Workflow</a>
-    <ng-template ngbNavContent>
-      <p>
-        Semper lacus eget malesuada fames ac turpis egestas. Proin pharetra
-        convallis ligula, a lobortis sapien condimentum non. In quis rhoncus
-        enim. Quisque porta auctor ipsum, a eleifend urna porta ut. Praesent
-        elementum, purus a egestas hendrerit, ante lectus convallis diam, vitae
-        congue orci ante vel odio. Nullam non dolor sed nibh aliquam suscipit.
-        Nulla facilisi. Donec lacinia, lectus vitae congue iaculis, risus orci
-        vulputate sem, eu tincidunt erat neque vitae justo.
-      </p>
-    </ng-template>
-  </li>
 </ul>
 
 <div [ngbNavOutlet]="nav" class="mt-2"></div>
-
-<pre>Active: {{ active }}</pre>
