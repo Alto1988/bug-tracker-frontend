@@ -1,1 +1,42 @@
-<p>login-form works!</p>
+<div class="container">
+  <h1>User Register/Login</h1>
+  <form>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input
+        type="text"
+        class="form-control"
+        id="username"
+        placeholder="Enter username"
+        [(ngModel)]="formData.username"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        placeholder="Enter email"
+        [(ngModel)]="formData.email"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        placeholder="Enter password"
+        [(ngModel)]="formData.password"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </div>
+    <div>
+      <input type="button" value="Login" (click)="onSubmit(formData)" />
+      <input type="button" value="Register" (click)="onRegister(formData)" />
+    </div>
+  </form>
+</div>
