@@ -41,5 +41,18 @@ export class LoginFormComponent implements OnInit {
         //This so far is for testing purposes only need to find a way to store the token without local storage
         localStorage.setItem('token', this.response['jwtToken']);
       });
+    this.router.navigate(['/']);
+  }
+
+  onRegister(formData: any) {
+    this.http
+      .post('http://localhost:9092/auth/user/register', formData)
+      .subscribe((data) => {
+        this.response = data;
+        console.log(this.response['jwtToken']);
+        //This so far is for testing purposes only need to find a way to store the token without local storage
+        localStorage.setItem('token', this.response['jwtToken']);
+      });
+    this.router.navigate(['/']);
   }
 }

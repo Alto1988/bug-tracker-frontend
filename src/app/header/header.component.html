@@ -1,42 +1,28 @@
-<ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
-  <li [ngbNavItem]="1">
-    <a ngbNavLink>Home</a>
-    <ng-template ngbNavContent>
-      <p>
-        Raw denim you probably haven't heard of them jean shorts Austin.
-        Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache
-        cliche tempor, williamsburg carles vegan helvetica. Reprehenderit
-        butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui
-        irure terry richardson ex squid. Aliquip placeat salvia cillum iphone.
-        Seitan aliquip quis cardigan american apparel, butcher voluptate nisi
-        qui.
-      </p>
-    </ng-template>
-  </li>
-  <li [ngbNavItem]="2">
-    <a ngbNavLink>Login/Register</a>
-    <ng-template ngbNavContent>
-      <app-login-form></app-login-form>
-    </ng-template>
-  </li>
-  <li [ngbNavItem]="3">
-    <a ngbNavLink>About</a>
-    <ng-template ngbNavContent>
-      <p>
-        Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget
-        sodales nibh elit id diam. Nulla facilisi. Donec egestas ligula vitae
-        odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu,
-        congue et odio. Duis pharetra et nisl at faucibus. Quisque luctus
-        pulvinar arcu, et molestie lectus ultrices et. Sed diam urna, egestas ut
-        ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu.
-        Vivamus faucibus nisl enim, nec tristique ipsum euismod facilisis. Morbi
-        ut bibendum est, eu tincidunt odio. Orci varius natoque penatibus et
-        magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet
-        odio ac lorem aliquet ultricies in eget neque. Phasellus nec tortor vel
-        tellus pulvinar feugiat.
-      </p>
-    </ng-template>
-  </li>
-</ul>
-
+<div>
+  <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+    <li [ngbNavItem]="1">
+      <a ngbNavLink>Home</a>
+      <ng-template ngbNavContent>
+        <p>Content of the Home tab</p>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="2">
+      <a ngbNavLink>Login/Register</a>
+      <ng-template ngbNavContent>
+        <app-login-form></app-login-form>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="3">
+      <a ngbNavLink>About</a>
+      <ng-template ngbNavContent>
+        <p>Say something about the product in here</p>
+      </ng-template>
+    </li>
+  </ul>
+  <ul class="nav justify-content-end">
+    <li class="nav-item">
+      <a class="nav-link active" routerLink="/bugdashboard">Go To Dashboard</a>
+    </li>
+  </ul>
+</div>
 <div [ngbNavOutlet]="nav" class="mt-2"></div>
