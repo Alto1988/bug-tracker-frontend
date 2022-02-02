@@ -55,4 +55,16 @@ export class LoginFormComponent implements OnInit {
       });
     this.router.navigate(['/']);
   }
+
+  login() {
+    const formValues = this.form.value;
+    if (formValues.email && formValues.password && formValues.username) {
+      this.auth
+        .login(formValues.username, formValues.email, formValues.password)
+        .subscribe(() => {
+          console.log('logged in');
+          this.router.navigate(['/']);
+        });
+    }
+  }
 }
