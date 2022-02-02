@@ -9,9 +9,18 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BugDashboardComponent } from './bug-dashboard/bug-dashboard.component';
+import { BugComponent } from './bug/bug.component';
+import { ClarityModule } from '@clr/angular';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, LoginFormComponent, BugDashboardComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    LoginFormComponent,
+    BugDashboardComponent,
+    BugComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -19,6 +28,8 @@ import { BugDashboardComponent } from './bug-dashboard/bug-dashboard.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    ClarityModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
