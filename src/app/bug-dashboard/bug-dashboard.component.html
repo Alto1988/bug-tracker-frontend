@@ -2,21 +2,50 @@
   <clr-dg-column [clrDgField]="'issueNo'" [clrDgColType]="'number'"
     >Issue No</clr-dg-column
   >
-  <clr-dg-column [clrDgField]="'title'" [clrDgColType]="'string'"
-    >Issue No</clr-dg-column
+  <clr-dg-column [clrDgField]="'title'">Title</clr-dg-column>
+  <clr-dg-column [clrDgField]="'description'">Description</clr-dg-column>
+  <clr-dg-column [clrDgField]="'createdAt'">createdAt</clr-dg-column>
+  <clr-dg-column [clrDgField]="'updatedAt'">updatedAt</clr-dg-column>
+  <clr-dg-column [clrDgField]="'resolutionSummary'"
+    >Resolution Summary</clr-dg-column
   >
-  <clr-dg-column [clrDgField]="'description'" [clrDgColType]="'string'"
-    >Issue No</clr-dg-column
+  <clr-dg-column [clrDgField]="'priority'" [clrDgSortBy]="'priority'"
+    >Priority</clr-dg-column
   >
-  <clr-dg-column [clrDgField]="'priority'" [clrDgColType]="'string'"
-    >Issue No</clr-dg-column
+  <clr-dg-column [clrDgField]="'status'" [clrDgColType]="'number'"
+    >Status</clr-dg-column
   >
   <clr-dg-row *clrDgItems="let issue of issues">
-    <clr-dg-cell>{{ issue.issueNo }}</clr-dg-cell>
     <clr-dg-cell>{{ issue.title }}</clr-dg-cell>
     <clr-dg-cell>{{ issue.description }}</clr-dg-cell>
     <clr-dg-cell>{{ issue.priority }}</clr-dg-cell>
+    <clr-dg-cell
+      ><span class="label" [class.label-danger]="issue.priority === 'high'"
+        >{{ issue.priority }}
+      </span></clr-dg-cell
+    >
   </clr-dg-row>
+  <clr-dg-footer>{{ issues.length }} issues</clr-dg-footer>
 </clr-datagrid>
 
-{{ issues[0] }}
+<div class="form-group">
+  <form>
+    <label for="title">Title</label>
+    <input type="text" placeholder="Enter bug title" />
+    <label for="description">Description</label>
+    <input type="text" placeholder="Enter bug description" />
+    <label for="priority">Priority</label>
+    <select>
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+    </select>
+    <label for="status">Status</label>
+    <select>
+      <option value="open">Open</option>
+      <option value="in progress">In Progress</option>
+      <option value="closed">Closed</option>
+    </select>
+    <button type="submit">Create Bug</button>
+  </form>
+</div>

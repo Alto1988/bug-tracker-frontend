@@ -12,6 +12,8 @@ import { BugDashboardComponent } from './bug-dashboard/bug-dashboard.component';
 import { BugComponent } from './bug/bug.component';
 import { ClarityModule } from '@clr/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AboutComponent } from './about/about.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoginFormComponent,
     BugDashboardComponent,
     BugComponent,
+    AboutComponent,
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,

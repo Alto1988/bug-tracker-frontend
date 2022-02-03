@@ -6,7 +6,7 @@ import { Issue } from '../bug/issue';
   providedIn: 'root',
 })
 export class IssueService {
-  issues: Issue[] = [];
+  issuesService: Issue[] = [];
   apiResponse: any;
   constructor(private http: HttpClient) {}
 
@@ -20,10 +20,10 @@ export class IssueService {
       })
       .subscribe((response) => {
         this.apiResponse = response;
-        this.issues = this.apiResponse.data;
-        console.log(this.issues);
-        console.log(this.apiResponse);
+        this.issuesService = this.apiResponse;
+        console.log(this.issuesService);
+        // console.log(this.apiResponse);
       });
-    return this.issues.filter((issue) => !issue.completed);
+    return this.issuesService.filter((issue) => !issue.completed);
   }
 }

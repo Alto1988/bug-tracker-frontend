@@ -1,13 +1,13 @@
 <div>
   <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
     <li [ngbNavItem]="1">
-      <a ngbNavLink>Home</a>
+      <a ngbNavLink routerLink="/home">Home</a>
       <ng-template ngbNavContent>
         <p>Content of the Home tab</p>
       </ng-template>
     </li>
     <li [ngbNavItem]="2">
-      <a ngbNavLink>Login/Register</a>
+      <a ngbNavLink routerLink="/login">Login/Register</a>
       <ng-template ngbNavContent>
         <app-login-form></app-login-form>
       </ng-template>
@@ -18,10 +18,9 @@
         <p>Say something about the product in here</p>
       </ng-template>
     </li>
-  </ul>
-  <ul class="nav justify-content-end">
-    <li class="nav-item">
-      <a class="nav-link active" routerLink="/bugdashboard">Go To Dashboard</a>
+    <li [ngbNavItem]="4">
+      <a routerLink="/bugdashboard">Dashboard</a>
+      <!-- <ng-template ngbNavContent> </ng-template> -->
     </li>
   </ul>
 </div>

@@ -11,11 +11,12 @@ export class BugDashboardComponent implements OnInit {
   constructor(private issueService: IssueService) {}
 
   ngOnInit(): void {
-    console.log(localStorage.getItem('token'));
     this.getIssues();
   }
 
-  getIssues() {
+  private getIssues() {
     this.issues = this.issueService.getPendingIssues();
   }
+
+  createIssues() {}
 }
