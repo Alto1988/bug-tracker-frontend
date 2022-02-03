@@ -26,4 +26,19 @@ export class IssueService {
       });
     return this.issuesService.filter((issue) => !issue.completed);
   }
+
+  createIssue(issue: Issue) {
+    console.log('Function was called');
+    this.http
+      .post('http://localhost:9092/api/bug', issue, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + localStorage.getItem('token'),
+        },
+      })
+      .subscribe((response) => {
+        this.apiResponse = response;
+        console.log(this.apiResponse);
+      });
+  }
 }

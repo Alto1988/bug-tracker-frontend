@@ -28,7 +28,7 @@
   <clr-dg-footer>{{ issues.length }} issues</clr-dg-footer>
 </clr-datagrid>
 
-<div class="form-group">
+<!-- <div class="form-group">
   <form>
     <label for="title">Title</label>
     <input type="text" placeholder="Enter bug title" />
@@ -46,6 +46,71 @@
       <option value="in progress">In Progress</option>
       <option value="closed">Closed</option>
     </select>
-    <button type="submit">Create Bug</button>
+    <label for="resolutionSummary">Resolution Summary</label>
+    <input type="text" placeholder="Enter resolution summary" />
+    <label for="createdAt">Created At</label>
+    <input type="text" placeholder="Enter created at" />
+    <label for="updatedAt">Updated At</label>
+    <input type="text" placeholder="Enter updated at" />
+    <button type="submit" (click)="createIssues()">Create Bug</button>
+  </form>
+</div> -->
+
+<div class="form-container">
+  <h3>Report a Bug</h3>
+  <form clrForm *ngIf="formData" [formGroup]="formData">
+    <clr-input-container>
+      <label>Title</label>
+      <input clrInput formControlName="title" />
+    </clr-input-container>
+    <clr-textarea-container>
+      <label>Description</label>
+      <textarea clrTextarea formControlName="description"></textarea>
+    </clr-textarea-container>
+    <clr-textarea-container>
+      <label>Resolution Summary</label>
+      <textarea clrTextarea formControlName="resolutionSummary"></textarea>
+    </clr-textarea-container>
+    <clr-radio-container clrInline>
+      <label>Priority</label>
+      <clr-radio-wrapper>
+        <input
+          clrInput
+          type="radio"
+          clrRadio
+          formControlName="priority"
+          value="low"
+        />
+      </clr-radio-wrapper>
+      <label>Low</label>
+      <clr-radio-wrapper>
+        <input
+          clrInput
+          type="radio"
+          clrRadio
+          formControlName="priority"
+          value="medium"
+        />
+      </clr-radio-wrapper>
+      <label>Medium</label>
+      <clr-radio-wrapper>
+        <input
+          clrInput
+          type="radio"
+          clrRadio
+          formControlName="priority"
+          value="high"
+        />
+      </clr-radio-wrapper>
+      <label>High</label>
+    </clr-radio-container>
+    <label>Type</label>
+    <clr-select-container>
+      <select clrSelect formControlName="type">
+        <option value="bug">Bug</option>
+        <option value="feature">Feature</option>
+      </select>
+    </clr-select-container>
+    <button class="btn btn-primary" type="submit">Create</button>
   </form>
 </div>

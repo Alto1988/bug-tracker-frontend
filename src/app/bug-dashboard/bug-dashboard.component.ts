@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Issue } from '../bug/issue';
 import { IssueService } from './issue.service';
 @Component({
@@ -8,7 +9,18 @@ import { IssueService } from './issue.service';
 })
 export class BugDashboardComponent implements OnInit {
   issues: Issue[] = [];
-  constructor(private issueService: IssueService) {}
+  formData: FormGroup;
+  constructor(private issueService: IssueService, private fb: FormBuilder) {
+    this.formData = this.fb.group({
+      title: ['', Validators.required],
+      description: ['', Validators.required],
+      priority: ['', Validators.required],
+      status: ['', Validators.required],
+      created: '',
+      updated: '',
+      resolutionSummary: '',
+    });
+  }
 
   ngOnInit(): void {
     this.getIssues();
@@ -18,5 +30,19 @@ export class BugDashboardComponent implements OnInit {
     this.issues = this.issueService.getPendingIssues();
   }
 
-  createIssues() {}
+  //TODO: create a method that allows us to create an issue
+  createIssues() {
+    const formValues = this.formData.value;
+    if (
+      formValues.title &&
+      formValues.description &&
+      formValues.priority &&
+      formValues.status &&
+      formValues.created &&
+      formValues.updated
+    ) {
+      this.issueService.createIssue(formValues);
+      this.formData.reset();
+    }
+  }
 }
