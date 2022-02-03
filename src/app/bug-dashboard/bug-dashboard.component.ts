@@ -9,40 +9,18 @@ import { IssueService } from './issue.service';
 })
 export class BugDashboardComponent implements OnInit {
   issues: Issue[] = [];
-  formData: FormGroup;
-  constructor(private issueService: IssueService, private fb: FormBuilder) {
-    this.formData = this.fb.group({
-      title: ['', Validators.required],
-      description: ['', Validators.required],
-      priority: ['', Validators.required],
-      status: ['', Validators.required],
-      created: '',
-      updated: '',
-      resolutionSummary: '',
-    });
-  }
+  isLoaded: Promise<boolean> = Promise.resolve(false);
+
+  constructor(private issueService: IssueService, private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.getIssues();
+    this.isLoaded = Promise.resolve(true);
   }
 
   private getIssues() {
     this.issues = this.issueService.getPendingIssues();
-  }
 
-  //TODO: create a method that allows us to create an issue
-  createIssues() {
-    const formValues = this.formData.value;
-    if (
-      formValues.title &&
-      formValues.description &&
-      formValues.priority &&
-      formValues.status &&
-      formValues.created &&
-      formValues.updated
-    ) {
-      this.issueService.createIssue(formValues);
-      this.formData.reset();
-    }
+    // this.isLoaded = Promise.resolve(true);
   }
 }

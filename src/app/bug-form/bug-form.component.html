@@ -1,0 +1,62 @@
+<div class="form-container">
+  <h3>Report a Bug</h3>
+  <form clrForm *ngIf="formData" [formGroup]="formData" (ngSubmit)="addIssue()">
+    <clr-input-container>
+      <label>Title</label>
+      <input clrInput formControlName="title" />
+    </clr-input-container>
+    <clr-textarea-container>
+      <label>Description</label>
+      <textarea clrTextarea formControlName="description"></textarea>
+    </clr-textarea-container>
+    <clr-textarea-container>
+      <label>Resolution Summary</label>
+      <textarea clrTextarea formControlName="resolutionSummary"></textarea>
+    </clr-textarea-container>
+    <clr-radio-container clrInline>
+      <label>Priority</label>
+      <clr-radio-wrapper>
+        <input
+          clrInput
+          type="radio"
+          clrRadio
+          formControlName="priority"
+          value="low"
+          [(ngModel)]="formData.value.status"
+        />
+      </clr-radio-wrapper>
+      <label>Low</label>
+      <clr-radio-wrapper>
+        <input
+          clrInput
+          type="radio"
+          clrRadio
+          formControlName="priority"
+          value="medium"
+          [(ngModel)]="formData.value.status"
+        />
+      </clr-radio-wrapper>
+      <label>Medium</label>
+      <clr-radio-wrapper>
+        <input
+          clrInput
+          type="radio"
+          clrRadio
+          formControlName="priority"
+          value="high"
+          [(ngModel)]="formData.value.status"
+        />
+      </clr-radio-wrapper>
+      <label>High</label>
+    </clr-radio-container>
+    <label>Type</label>
+    <clr-select-container>
+      <select clrSelect formControlName="type">
+        <option value="bug">Bug</option>
+        <option value="feature">Feature</option>
+      </select>
+    </clr-select-container>
+    <button class="btn btn-primary" type="submit">Create</button>
+  </form>
+  <pre></pre>
+</div>

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BugDashboardComponent } from './bug-dashboard/bug-dashboard.component';
+import { BugFormComponent } from './bug-form/bug-form.component';
 import { HeaderComponent } from './header/header.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { LoginFormComponent } from './login-form/login-form.component';
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginFormComponent,
+  },
+  {
+    path: 'create_bug',
+    component: BugFormComponent,
   },
 ];
 

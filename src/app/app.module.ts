@@ -14,6 +14,7 @@ import { ClarityModule } from '@clr/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AboutComponent } from './about/about.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { BugFormComponent } from './bug-form/bug-form.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { HomePageComponent } from './home-page/home-page.component';
     BugComponent,
     AboutComponent,
     HomePageComponent,
+    BugFormComponent,
   ],
   imports: [
     BrowserModule,

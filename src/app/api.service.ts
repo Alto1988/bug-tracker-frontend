@@ -1,15 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Issue } from '../bug/issue';
+import { Router } from '@angular/router';
+import { Issue } from './bug/issue';
 
 @Injectable({
   providedIn: 'root',
 })
-export class IssueService {
+export class ApiService {
   issuesService: Issue[] = [];
   apiResponse: any;
-  constructor(private http: HttpClient) {}
-
+  issueNo: number = 0;
+  constructor(private http: HttpClient, private router: Router) {}
   getPendingIssues(): Issue[] {
     this.http
       .get('http://localhost:9092/api/bug', {
@@ -30,6 +31,8 @@ export class IssueService {
   createIssue(issue: Issue) {
     console.log('Function was called');
     console.log(issue);
+    this.issueNo = this.issuesService.length + 1;
+    this.issuesService.push(issue);
     this.http
       .post('http://localhost:9092/api/bug', issue, {
         headers: {
@@ -41,5 +44,6 @@ export class IssueService {
         this.apiResponse = response;
         console.log(this.apiResponse);
       });
+    this.router.navigate(['/bugdashboard']);
   }
 }
