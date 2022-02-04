@@ -1,4 +1,4 @@
-# BugTrackerFrontend
+# Bug Tracker
 
 <img src="/src/assets/images/OG-Spring.png" height="200" width="300"/> <img src="/src/assets/images/Java-Logo.png" height="200" width="300"/>
 <img src="/src/assets/images/Angular_full_color_logo.svg.png" height="200" width="300"/>
