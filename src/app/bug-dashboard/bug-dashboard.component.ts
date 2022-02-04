@@ -9,7 +9,7 @@ import { IssueService } from './issue.service';
   styleUrls: ['./bug-dashboard.component.css'],
 })
 export class BugDashboardComponent implements OnInit {
-  issues: Issue[] = this.issueService.issuesService;
+  issues: Issue[] = [];
 
   showReportIssues: boolean = false;
   apiResponse: any;
