@@ -15,6 +15,8 @@ export class BugComponent implements OnInit {
     title: '',
     description: '',
     summary: '',
+    priority: '',
+    status: '',
   };
   formData: FormBuilder | any;
   constructor(
@@ -30,7 +32,9 @@ export class BugComponent implements OnInit {
     this.formData = this.fb.group({
       title: [this.simpleBug.title, Validators.required],
       description: [this.simpleBug.description, Validators.required],
-      summary: '',
+      resolutionSummary: this.simpleBug.summary,
+      priority: this.simpleBug.priority,
+      status: this.simpleBug.status,
     });
   }
 
@@ -48,8 +52,10 @@ export class BugComponent implements OnInit {
   }
 
   onUpdate() {
+    // console.log(this.bugId);
+    //Stretch goals fix this method for the love of god
     this.http
-      .put('http://localhost:9092/api/bug/' + this.bugId, this.formData.value, {
+      .put('http://localhost:9092/api/bug/' + this.bugId, this.simpleBug, {
         headers: {
           'Content-Type': 'application/json',
           Authorization: 'Bearer ' + localStorage.getItem('token'),

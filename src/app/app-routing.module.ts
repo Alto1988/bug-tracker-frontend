@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutComponent } from './about/about.component';
 import { BugDashboardComponent } from './bug-dashboard/bug-dashboard.component';
 import { BugFormComponent } from './bug-form/bug-form.component';
 import { BugComponent } from './bug/bug.component';
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: '',
     component: HeaderComponent,
+  },
+  {
+    path: 'about',
+    component: AboutComponent,
   },
   {
     path: 'home',

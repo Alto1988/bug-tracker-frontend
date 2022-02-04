@@ -10,7 +10,7 @@
 <button class="btn btn-secondary" routerLink="/bugdashboard">Cancel</button>
 
 <div [hidden]="showForm">
-  <form class="form-container">
+  <form class="form-container" [formGroup]="formData" (ngSubmit)="onUpdate()">
     <label>Title</label>
     <div>
       <input
@@ -38,6 +38,22 @@
         [ngModelOptions]="{ standalone: true }"
       />
     </div>
-    <button (click)="onUpdate()">Submit Updates</button>
+    <clr-select-container>
+      <select clrSelect formControlName="status">
+        <option value="bug">Bug</option>
+        <option value="feature">Feature</option>
+      </select>
+    </clr-select-container>
+    <label>Priority</label>
+    <clr-select-container>
+      <select clrSelect formControlName="priority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+    </clr-select-container>
+
+    <button type="submit">Submit Updates</button>
+    <pre>{{ formData.value.title }}, {{ formData.value.description }}</pre>
   </form>
 </div>
