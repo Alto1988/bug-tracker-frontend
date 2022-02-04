@@ -1,5 +1,8 @@
 # BugTrackerFrontend
 
+<img src="/src/assets/images/OG-Spring.png" height="200" width="300"/> <img src="/src/assets/images/Java-Logo.png" height="200" width="300"/>
+<img src="/src/assets/images/Angular_full_color_logo.svg.png" height="200" width="300"/>
+
 [Bug Tracker Backend](https://github.com/Alto1988/bug-tracker-backend)
 
 ## How to Setup
