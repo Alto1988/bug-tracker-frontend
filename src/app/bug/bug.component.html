@@ -1,19 +1,43 @@
-<!-- <clr-datagrid>
-  <clr-dg-column [clrDgField]="'issueNo'" [clrDgColType]="'number'"
-    >Issue No</clr-dg-column
-  >
-  <clr-dg-column [clrDgField]="'title'" [clrDgColType]="'string'"
-    >Issue No</clr-dg-column
-  >
-  <clr-dg-column [clrDgField]="'description'" [clrDgColType]="'string'"
-    >Issue No</clr-dg-column
-  >
-  <clr-dg-column [clrDgField]="'priority'" [clrDgColType]="'string'"
-    >Issue No</clr-dg-column
-  >
-  <clr-dg-row *clrDgItems="let issue of issues">
-    <clr-dg-cell>{{issue.issueNo}}</clr-dg-cell>
-    <clr-dg-cell>{{issue.title}}</clr-dg-cell>
-    <clr-dg-cell>{{issue.description}}</clr-dg-cell>
-    <clr-dg-cell>{{issue.priority}}</clr-dg-cell>
-</clr-datagrid> -->
+<h2>Bug Info</h2>
+<div class="bug-info-container">
+  <h6>{{ simpleBug.title }}</h6>
+  <p>{{ simpleBug.description }}</p>
+  <p>{{ simpleBug.summary }}</p>
+</div>
+
+<button class="btn btn-primary" (click)="onDelete()">Delete</button>
+<button class="btn btn-primary" (click)="show()">Update</button>
+<button class="btn btn-secondary" routerLink="/bugdashboard">Cancel</button>
+
+<div [hidden]="showForm">
+  <form class="form-container">
+    <label>Title</label>
+    <div>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="simpleBug.title"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </div>
+    <label>Description</label>
+    <div>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="simpleBug.description"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </div>
+    <label>Summary</label>
+    <div>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="simpleBug.summary"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </div>
+    <button (click)="onUpdate()">Submit Updates</button>
+  </form>
+</div>

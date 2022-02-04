@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AboutComponent } from './about/about.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { BugFormComponent } from './bug-form/bug-form.component';
+import { ResolveIssueComponent } from './resolve-issue/resolve-issue.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { BugFormComponent } from './bug-form/bug-form.component';
     AboutComponent,
     HomePageComponent,
     BugFormComponent,
+    ResolveIssueComponent,
   ],
   imports: [
     BrowserModule,

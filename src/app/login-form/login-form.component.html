@@ -1,8 +1,10 @@
 <div class="container">
   <h1>User Register/Login</h1>
-  <form>
+  <form clrForm>
     <div class="form-group">
-      <label for="username">Username</label>
+      <div>
+        <label for="username">Username</label>
+      </div>
       <input
         type="text"
         class="form-control"
@@ -13,7 +15,9 @@
       />
     </div>
     <div>
-      <label for="email">Email</label>
+      <div>
+        <label for="email">Email</label>
+      </div>
       <input
         type="email"
         class="form-control"
@@ -24,7 +28,9 @@
       />
     </div>
     <div>
-      <label for="password">Password</label>
+      <div>
+        <label for="password">Password</label>
+      </div>
       <input
         type="password"
         class="form-control"
@@ -34,9 +40,7 @@
         [ngModelOptions]="{ standalone: true }"
       />
     </div>
-    <div>
-      <input type="button" value="Login" (click)="onSubmit(formData)" />
-      <input type="button" value="Register" (click)="onRegister(formData)" />
-    </div>
+    <input type="button" value="Login" (click)="onSubmit(formData)" />
+    <input type="button" value="Register" (click)="onRegister(formData)" />
   </form>
 </div>

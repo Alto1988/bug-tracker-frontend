@@ -1,45 +1,46 @@
-<div class="form-container">
+<div class="container">
   <h3>Report a Bug</h3>
   <form clrForm *ngIf="formData" [formGroup]="formData" (ngSubmit)="addIssue()">
     <clr-input-container>
       <label>Title</label>
       <input clrInput formControlName="title" />
+      <clr-control-error>Title is required</clr-control-error>
     </clr-input-container>
     <clr-textarea-container>
       <label>Description</label>
       <textarea clrTextarea formControlName="description"></textarea>
+      <clr-control-error>Description is required</clr-control-error>
     </clr-textarea-container>
     <clr-textarea-container>
       <label>Resolution Summary</label>
       <textarea clrTextarea formControlName="resolutionSummary"></textarea>
     </clr-textarea-container>
-    <clr-radio-container clrInline>
+    <!-- <clr-radio-container clrInline>
       <label>Priority</label>
       <clr-radio-wrapper>
         <input
-          clrInput
           type="radio"
           clrRadio
           formControlName="priority"
           value="low"
           [(ngModel)]="formData.value.status"
         />
+        <clr-control-error>Priority is required</clr-control-error>
       </clr-radio-wrapper>
       <label>Low</label>
       <clr-radio-wrapper>
         <input
-          clrInput
           type="radio"
           clrRadio
           formControlName="priority"
           value="medium"
           [(ngModel)]="formData.value.status"
         />
+        <clr-control-error>Priority is required</clr-control-error>
       </clr-radio-wrapper>
       <label>Medium</label>
       <clr-radio-wrapper>
         <input
-          clrInput
           type="radio"
           clrRadio
           formControlName="priority"
@@ -48,7 +49,7 @@
         />
       </clr-radio-wrapper>
       <label>High</label>
-    </clr-radio-container>
+    </clr-radio-container> -->
     <label>Type</label>
     <clr-select-container>
       <select clrSelect formControlName="type">
@@ -56,7 +57,15 @@
         <option value="feature">Feature</option>
       </select>
     </clr-select-container>
+    <label>Priority</label>
+    <clr-select-container>
+      <select clrSelect formControlName="priority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+    </clr-select-container>
     <button class="btn btn-primary" type="submit">Create</button>
+    <button class="btn btn-secondary" routerLink="/bugdashboard">Cancel</button>
   </form>
-  <pre></pre>
 </div>

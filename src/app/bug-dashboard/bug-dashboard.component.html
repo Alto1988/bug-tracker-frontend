@@ -1,11 +1,8 @@
 <clr-datagrid>
-  <clr-dg-column [clrDgField]="'issueNo'" [clrDgColType]="'number'"
-    >Issue No</clr-dg-column
-  >
   <clr-dg-column [clrDgField]="'title'">Title</clr-dg-column>
   <clr-dg-column [clrDgField]="'description'">Description</clr-dg-column>
   <clr-dg-column [clrDgField]="'createdAt'">createdAt</clr-dg-column>
-  <clr-dg-column [clrDgField]="'updatedAt'">updatedAt</clr-dg-column>
+
   <clr-dg-column [clrDgField]="'resolutionSummary'"
     >Resolution Summary</clr-dg-column
   >
@@ -15,9 +12,21 @@
   <clr-dg-column [clrDgField]="'status'" [clrDgColType]="'number'"
     >Status</clr-dg-column
   >
-  <clr-dg-row *clrDgItems="let issue of issues">
-    <clr-dg-cell>{{ issue.title }}</clr-dg-cell>
+  <clr-dg-row *clrDgItems="let issue of issues; let i = index">
+    <clr-dg-cell
+      ><a
+        routerLink="/bug/{{ i }}"
+        [state]="{
+          index: issue.id,
+          title: issue.title,
+          description: issue.description,
+          summary: issue.resolutionSummary
+        }"
+        >{{ issue.title }}</a
+      ></clr-dg-cell
+    >
     <clr-dg-cell>{{ issue.description }}</clr-dg-cell>
+    <clr-dg-cell>{{ issue.createdAt }}</clr-dg-cell>
     <clr-dg-cell>{{ issue.priority }}</clr-dg-cell>
     <clr-dg-cell
       ><span class="label" [class.label-danger]="issue.priority === 'high'"
@@ -29,3 +38,4 @@
 </clr-datagrid>
 
 <button routerLink="/create_bug">Create a bug</button>
+<button routerLink="/">Main Page</button>
